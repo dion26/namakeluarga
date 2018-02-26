@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block head_title %}List || {{ block.super }} {% endblock head_title %}
+
+{% block content %}
+<h1> List </h1>
+<ul>
+    {% for obj in object_list %}
+        <li>
+            {{obj.first_name}} <small>{{obj.last_name}}</small>
+            {{ obj.father }} {{obj.mother}}
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}

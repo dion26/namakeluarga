@@ -1,0 +1,13 @@
+{% extends "home.html" %}
+{% block head_title %} Detail || {{ block.super }} {% endblock head_title %}
+
+{% block content %}
+<h1> Siapa Anda? </h1>
+<br />
+<form method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Search</button>
+</form>
+
+
+{% endblock content %}

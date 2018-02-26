@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+      <head>
+          <title>{% block head_title %}Nama Keluarga{% endblock head_title%}</title>
+          {% include 'snippets/css.html' %}
+          <meta charset="utf-8">
+      </head>
+
+      <body>
+
+          {% include 'snippets/nav.html' %}
+
+          <div class="container">
+              {% block content %}{% endblock content %}
+          </div>
+          {% include 'snippets/js.html' %}
+      </body>
+
+  </html>

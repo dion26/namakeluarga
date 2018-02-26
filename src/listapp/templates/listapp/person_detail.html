@@ -1,0 +1,187 @@
+{% extends "home.html" %}
+{% block head_title %}List Detail|| {{ block.super }} {% endblock head_title %}
+
+{% block content %}
+<h1> {{object.first_name}}, 我自己, Wo Ze Ji</h1>
+<ul>
+    <li>
+        爷爷, Yéyé, 阿公, A Kong, 阿公, A Kung/Kung Kung, <b>Kakek dari Ayah</b> :
+        <ul>
+            <li>
+                <b>{{object.m_grand_father}}</b>
+            </li>
+        </ul>
+    </li>
+    <li>
+        奶奶, Nǎinai, 阿媽, A Ma, 阿媽, PhoPho/A Po, <b>Nenek dari Ayah</b> :
+        <ul>
+            <li>
+                <b>{{object.m_grand_mother}}</b>
+            </li>
+        </ul>
+    </li>
+    <li>
+        巴巴, Bābā, 老父, Lao Pe, 阿爸, A Pa, <b>Ayah</b> :
+        <ul>
+            <li>
+                <b>{{object.father}}</b>
+            </li>
+        </ul>
+    </li>
+    <li>
+        妈妈, Māmā, 老母, Lao Bu, 阿母, A me, <b>Ibu</b> :
+        <ul>
+            <li>
+                <b>{{object.mother}}</b>
+            </li>
+        </ul>
+    </li>
+    <li>
+        {% if object.gender == "M" %}
+        老婆, Lǎopó, 某, Bou, Lo Pho/Mou = <b>Istri</b> :
+        {% else %}
+        老公, Lǎogōng,翁婿 Ang Sai/Weng Xui, 翁婿, LaoKung = <b>Suami</b> :
+        {% endif %}
+        <ul>
+            {%for obj in object.pasangan%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+
+    </li>
+    <li>
+        囝仔, Gin Na/Nan Zi, 孝生<b>Anak</b> :
+        <ul>
+            {%for obj in object.anak%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        哥哥, Gēgē/Ko Ko, 大兄, Tua Hnia/Ta Siung, 大兄, Thaiko/Ako/Ta Siung, <b>Kakak Lelaki</b>:
+        <ul>
+            {%for obj in object.older_brother%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        弟弟, Dìdì, 小弟, Sio Ti, 小弟, Lo Thai, <b>Adik Lelaki</b> :
+        <ul>
+            {%for obj in object.younger_brother%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        姐姐, Jiějiě/Ci Ci, 大姐, Tua Ci/Ta Cie/Thai Ce/A Ce/Ta Jie, <b>Kakak Perempuan</b>:
+        <ul>
+            {%for obj in object.older_sister%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        妹妹, Mèimei/Ci Ci, 小妹, Sio Be/Xiao Mei,LoMoi/Mei Xu, <b>Adik Perempuan</b>:
+        <ul>
+            {%for obj in object.younger_sister%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        伯父, Bófù, 阿伯, A Pek/Tua Pek, 阿伯, A Pak/Thai Pak, <b>Paman dari Ayah (tua)</b>:
+        <ul>
+            {%for obj in object.m_older_uncle%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        叔叔, Shūshu, 姑丈, Ko Tiu/Gu Zhang, 姑丈, Ku Chong/Gu Zhang, <b>Paman dari Ayah (muda)</b>:
+        <ul>
+            {%for obj in object.m_younger_uncle%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        舅舅, Jiùjiu, 阿舅, A Ku/Tua Ku, 阿舅, A Kiu, <b>Paman dari Ibu (tua)</b>:
+        <ul>
+            {%for obj in object.f_older_uncle%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        小舅, Xiǎojiù, 姨丈, Yi Tiu, 姨丈, JiChong/Yi Zhang, <b>Paman dari Ibu (muda)</b>:
+        <ul>
+            {%for obj in object.f_younger_uncle%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        姑姑, Gūgū, 阿姆, A M/Tua m, 阿姆, Pak Me, <b>Bibi dari Ayah (tua)</b>:
+        <ul>
+            {%for obj in object.m_older_auntie%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        小姑, Xiǎogū, 阿姑, A Kou/A Ku, 阿姑, KuKu/A Ku/ThayKu, <b>Bibi dari Ayah (muda)</b>:
+        <ul>
+            {%for obj in object.m_younger_auntie%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        姨妈, Yíma, 阿妗, A Kim, 阿妗, KhiuMe <b>Bibi dari Ibu(tua)</b>:
+        <ul>
+            {%for obj in object.f_older_auntie%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+    <li>
+        小姨, Xiǎoyí, 阿姨, A Yiu/Yi Yi, <b>Bibi dari Ibu(muda)</b>:
+        <ul>
+            {%for obj in object.f_younger_auntie%}
+            <li>
+                <b>{{obj}}</b>
+            </li>
+            {%endfor%}
+        </ul>
+    </li>
+</ul>
+
+
+{% endblock content %}

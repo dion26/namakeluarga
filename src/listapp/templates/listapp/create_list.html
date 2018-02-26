@@ -1,0 +1,12 @@
+{% extends "home.html" %}
+{% block head_title %}Create List || {{ block.super }} {% endblock head_title %}
+
+{% block content %}
+<h1> Create List </h1>
+<form method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Save</button>
+</form>
+
+
+{% endblock content %}
